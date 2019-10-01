@@ -103,13 +103,19 @@ view: person_dim {
   }
 
   dimension: latitude {
-    type: number
+    type: string
     sql: ${TABLE}."LATITUDE" ;;
   }
 
   dimension: longitude {
-    type: number
+    type: string
     sql: ${TABLE}."LONGITUDE" ;;
+  }
+
+  dimension: location {
+    type: location
+    sql_latitude: ${latitude} ;;
+    sql_longitude: ${longitude} ;;
   }
 
   dimension: objecttype {

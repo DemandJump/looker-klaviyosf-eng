@@ -1,3 +1,4 @@
+
 view: event_fact {
   sql_table_name: KLAVIYO.EVENT_FACT ;;
 
@@ -42,6 +43,7 @@ view: event_fact {
     sql: ${TABLE}."_TIMESTAMP" ;;
   }
 
+
   dimension: accountkey {
     type: number
     hidden: yes
@@ -59,6 +61,21 @@ view: event_fact {
     hidden: yes
     sql: ${TABLE}."EVENTID" ;;
   }
+
+  dimension_group: event_timestamp {
+    type: time
+    timeframes: [
+      raw,
+      time,
+      date,
+      week,
+      month,
+      quarter,
+      year
+    ]
+    sql: ${TABLE}."EVENTTIMESTAMP" ;;
+  }
+
 
   dimension: eventkey {
     type: number

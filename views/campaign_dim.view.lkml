@@ -55,11 +55,13 @@ view: campaign_dim {
   }
 
   dimension: campaignname {
+    label: "Campaign Name"
     type: string
     sql: ${TABLE}."CAMPAIGNNAME" ;;
   }
 
   dimension: campaigntype {
+    label: "Campaign Type"
     type: string
     sql: ${TABLE}."CAMPAIGNTYPE" ;;
   }
@@ -79,11 +81,13 @@ view: campaign_dim {
   }
 
   dimension: fromemail {
+    label: "From Email"
     type: string
     sql: ${TABLE}."FROMEMAIL" ;;
   }
 
   dimension: issegmented {
+    label: "Is Segmented"
     type: yesno
     sql: ${TABLE}."ISSEGMENTED" ;;
   }
@@ -117,11 +121,13 @@ view: campaign_dim {
   }
 
   dimension: statuslabel {
+    label: "Status Label"
     type: string
     sql: ${TABLE}."STATUSLABEL" ;;
   }
 
   dimension: subject {
+    label: "Campaign Subject"
     type: string
     sql: ${TABLE}."SUBJECT" ;;
   }

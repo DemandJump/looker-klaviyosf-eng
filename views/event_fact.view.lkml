@@ -120,8 +120,7 @@ view: event_fact {
   }
 
   measure: count {
-    type: count_distinct
-    sql: ${eventkey} ;;
+    type: count
     drill_fields: []
     }
 
@@ -133,8 +132,8 @@ view: event_fact {
 
   measure: delivered_email_count {
     label: "Received Emails"
-    type: count_distinct
-   sql: ${eventkey} ;;
+    type: count
+
   filters: {
     field: metric_dim.metricname
     value: "Received Email"
@@ -143,8 +142,8 @@ view: event_fact {
 
   measure: clicked_email_count {
     label: "Clicked Emails"
-    type: count_distinct
-   sql: ${eventkey} ;;
+    type: count
+
   filters: {
     field: metric_dim.metricname
     value: "Clicked Email"
@@ -153,8 +152,8 @@ view: event_fact {
 
   measure: opened_email_count {
     label: "Opened Emails"
-    type: count_distinct
-   sql: ${eventkey} ;;
+    type: count
+
   filters: {
     field: metric_dim.metricname
     value: "Opened Email"
@@ -164,8 +163,8 @@ view: event_fact {
   measure: conversion_count {
     label: "Conversions"
     description: "Placed Order"
-    type: count_distinct
-   sql: ${eventkey} ;;
+    type: count
+
   filters: {
     field: metric_dim.metricname
     value: "Placed Order"
@@ -174,8 +173,8 @@ view: event_fact {
 
   measure: bounced_email_count {
     label: "Bounced Emails"
-    type: count_distinct
-   sql: ${eventkey} ;;
+    type: count
+
   filters: {
     field: metric_dim.metricname
     value: "Bounced Email"
@@ -184,8 +183,8 @@ view: event_fact {
 
   measure: dropped_email_count {
     label: "Dropped Emails"
-    type: count_distinct
-   sql: ${eventkey} ;;
+    type: count
+
   filters: {
     field: metric_dim.metricname
     value: "Dropped Email"
@@ -194,8 +193,8 @@ view: event_fact {
 
   measure: unsubscribed_email_count {
     label: "Unsubscribed Emails"
-    type: count_distinct
-   sql: ${eventkey} ;;
+    type: count
+
   filters: {
     field: metric_dim.metricname
     value: "Unsubscribed"
@@ -205,8 +204,8 @@ view: event_fact {
   measure: spam_email_count {
     label: "Marked as Spam Emails"
     description: "Marked Email as Spam"
-    type: count_distinct
-   sql: ${eventkey} ;;
+    type: count
+
   filters: {
     field: metric_dim.metricname
     value: "Marked Email as Spam"

@@ -4,30 +4,29 @@ include: "views/*.view.lkml"                       # include all views in this p
 # include: "my_dashboard.dashboard.lookml"   # include a LookML dashboard called my_dashboard
 
 
-explore: event_fact {
+explore: insight_fact {
   access_filter: {
-    field:  event_fact._pid
+    field:  insight_fact._pid
     user_attribute: djaim_pid
   }
-
   join: account_dim {
     relationship: one_to_many
-    sql_on: ${account_dim.accountkey}=${event_fact.accountkey} ;;
+    sql_on: ${account_dim.id}=${insight_fact.account_id} ;;
     type: inner
   }
   join: campaign_dim {
     relationship: one_to_many
-    sql_on: ${campaign_dim.campaignkey}=${event_fact.campaignkey} ;;
+    sql_on: ${campaign_dim.id}=${insight_fact.campaign_id} ;;
     type: inner
   }
   join: metric_dim {
     relationship: one_to_many
-    sql_on: ${metric_dim.metrickey}=${event_fact.metrickey} ;;
+    sql_on: ${metric_dim.id}=${insight_fact.metric_id} ;;
     type: inner
   }
-  join: person_dim {
+  join: insight_dim {
     relationship: one_to_many
-    sql_on: ${person_dim.personkey}=${event_fact.personkey} ;;
+    sql_on: ${insight_dim.id}=${insight_fact.insight_id};;
     type: inner
   }
 }

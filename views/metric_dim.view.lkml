@@ -1,72 +1,36 @@
 view: metric_dim {
   sql_table_name: KLAVIYO.METRIC_DIM ;;
+  drill_fields: [id]
 
-  dimension: _integrationaccountid {
-    type: string
-    hidden: yes
-    sql: ${TABLE}."_INTEGRATIONACCOUNTID" ;;
-  }
-
-  dimension: _pid {
-    type: number
-    hidden: yes
-    value_format_name: id
-    sql: ${TABLE}."_PID" ;;
-  }
-
-  dimension: _registrationid {
-    type: number
-    hidden: yes
-    value_format_name: id
-    sql: ${TABLE}."_REGISTRATIONID" ;;
-  }
-
-  dimension: _rowversion {
-    type: number
-    hidden: yes
-    sql: ${TABLE}."_ROWVERSION" ;;
-  }
-
-  dimension_group: _timestamp {
-    type: time
-    hidden: yes
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}."_TIMESTAMP" ;;
-  }
-
-  dimension: integrationcategory {
-    type: string
-    sql: ${TABLE}."INTEGRATIONCATEGORY" ;;
-  }
-
-  dimension: integrationname {
-    type: string
-    sql: ${TABLE}."INTEGRATIONNAME" ;;
-  }
-
-  dimension: metricid {
-    type: string
-    sql: ${TABLE}."METRICID" ;;
-  }
-
-  dimension: metrickey {
-    type: number
-    hidden: yes
+  dimension: id {
     primary_key: yes
-    sql: ${TABLE}."METRICKEY" ;;
-  }
-
-  dimension: metricname {
     type: string
-    sql: ${TABLE}."METRICNAME" ;;
+    hidden: yes
+    sql: ${TABLE}."ID" ;;
   }
 
+  dimension: integration_category {
+    type: string
+    sql: ${TABLE}."INTEGRATION_CATEGORY" ;;
+  }
+
+  dimension: integration_name {
+    type: string
+    sql: ${TABLE}."INTEGRATION_NAME" ;;
+  }
+
+  dimension: metric_id {
+    type: string
+    sql: ${TABLE}."METRIC_ID" ;;
+  }
+
+  dimension: metric_name {
+    type: string
+    sql: ${TABLE}."METRIC_NAME" ;;
+  }
+
+  measure: count {
+    type: count
+    drill_fields: [id, metric_name, integration_name]
+  }
 }

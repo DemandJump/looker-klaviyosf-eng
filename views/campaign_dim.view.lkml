@@ -1,98 +1,51 @@
 view: campaign_dim {
   sql_table_name: KLAVIYO.CAMPAIGN_DIM ;;
+  drill_fields: [id]
 
-  dimension: _integrationaccountid {
-    type: string
-    hidden: yes
-    sql: ${TABLE}."_INTEGRATIONACCOUNTID" ;;
-  }
-
-  dimension: _pid {
-    type: number
-    hidden: yes
-    value_format_name: id
-    sql: ${TABLE}."_PID" ;;
-  }
-
-  dimension: _registrationid {
-    type: number
-    hidden: yes
-    value_format_name: id
-    sql: ${TABLE}."_REGISTRATIONID" ;;
-  }
-
-  dimension: _rowversion {
-    type: number
-    hidden: yes
-    sql: ${TABLE}."_ROWVERSION" ;;
-  }
-
-  dimension_group: _timestamp {
-    type: time
-    hidden: yes
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}."_TIMESTAMP" ;;
-  }
-
-  dimension: campaignid {
-    type: string
-    sql: ${TABLE}."CAMPAIGNID" ;;
-  }
-
-  dimension: campaignkey {
-    type: number
-    hidden: yes
+  dimension: id {
     primary_key: yes
-    sql: ${TABLE}."CAMPAIGNKEY" ;;
-  }
-
-  dimension: campaignname {
-    label: "Campaign Name"
     type: string
-    sql: ${TABLE}."CAMPAIGNNAME" ;;
+    hidden: yes
+    sql: ${TABLE}."ID" ;;
   }
 
-  dimension: campaigntype {
-    label: "Campaign Type"
+
+  dimension: campaign_id {
     type: string
-    sql: ${TABLE}."CAMPAIGNTYPE" ;;
+    sql: ${TABLE}."CAMPAIGN_ID" ;;
   }
 
-  dimension_group: created {
-    type: time
-    timeframes: [
-      raw,
-      time,
-      date,
-      week,
-      month,
-      quarter,
-      year
-    ]
-    sql: ${TABLE}."CREATED" ;;
-  }
-
-  dimension: fromemail {
-    label: "From Email"
+  dimension: campaign_name {
     type: string
-    sql: ${TABLE}."FROMEMAIL" ;;
+    sql: ${TABLE}."CAMPAIGN_NAME" ;;
   }
 
-  dimension: issegmented {
-    label: "Is Segmented"
+  dimension: campaign_subject {
+    type: string
+    sql: ${TABLE}."CAMPAIGN_SUBJECT" ;;
+  }
+
+  dimension: campaign_type {
+    type: string
+    sql: ${TABLE}."CAMPAIGN_TYPE" ;;
+  }
+
+  dimension: is_segmented {
     type: yesno
-    sql: ${TABLE}."ISSEGMENTED" ;;
+    sql: ${TABLE}."IS_SEGMENTED" ;;
   }
 
-  dimension_group: sendtime {
+  dimension: lists {
+    type: string
+    sql: ${TABLE}."LISTS" ;;
+  }
+
+  dimension: num_recipients {
+    type: number
+    sql: ${TABLE}."NUM_RECIPIENTS" ;;
+  }
+
+  dimension_group: send {
     type: time
     timeframes: [
       raw,
@@ -103,10 +56,10 @@ view: campaign_dim {
       quarter,
       year
     ]
-    sql: ${TABLE}."SENDTIME" ;;
+    sql: ${TABLE}."SEND_TIME" ;;
   }
 
-  dimension_group: sentat {
+  dimension_group: sent {
     type: time
     timeframes: [
       raw,
@@ -117,19 +70,17 @@ view: campaign_dim {
       quarter,
       year
     ]
-    sql: ${TABLE}."SENTAT" ;;
+    sql: ${TABLE}."SENT_AT" ;;
   }
 
-  dimension: statuslabel {
-    label: "Status Label"
+  dimension: status {
     type: string
-    sql: ${TABLE}."STATUSLABEL" ;;
+    sql: ${TABLE}."STATUS" ;;
   }
 
-  dimension: subject {
-    label: "Campaign Subject"
+  dimension: template_id {
     type: string
-    sql: ${TABLE}."SUBJECT" ;;
+    sql: ${TABLE}."TEMPLATE_ID" ;;
   }
 
 }

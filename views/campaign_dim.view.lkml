@@ -20,6 +20,11 @@ view: campaign_dim {
     sql: ${TABLE}."CAMPAIGN_NAME" ;;
   }
 
+  dimension: campaign_subject {
+    type: string
+    sql: ${TABLE}."CAMPAIGN_SUBJECT" ;;
+  }
+
   dimension: campaign_type {
     type: string
     sql: ${TABLE}."CAMPAIGN_TYPE" ;;

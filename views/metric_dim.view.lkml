@@ -29,8 +29,4 @@ view: metric_dim {
     sql: ${TABLE}."METRIC_NAME" ;;
   }
 
-  measure: count {
-    type: count
-    drill_fields: [id, metric_name, integration_name]
-  }
 }

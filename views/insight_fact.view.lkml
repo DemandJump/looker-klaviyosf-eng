@@ -89,8 +89,8 @@ view: insight_fact {
     sql: ${TABLE}."VALUE" ;;
 
     filters: {
-      field: metric_dim.metric_name
-      value: "Placed Order"
+      field: insight_dim.insight_name
+      value: "Revenue"
     }
   }
 
@@ -101,8 +101,8 @@ view: insight_fact {
     sql: ${TABLE}."VALUE" ;;
 
     filters: {
-      field: metric_dim.metric_name
-      value: "Received Email"
+      field: insight_dim.insight_name
+      value: "Total Received"
     }
   }
 
@@ -112,8 +112,8 @@ view: insight_fact {
     sql: ${TABLE}."VALUE" ;;
 
     filters: {
-      field: metric_dim.metric_name
-      value: "Clicked Email"
+      field: insight_dim.insight_name
+      value: "Total Clicked"
     }
   }
 
@@ -123,8 +123,8 @@ view: insight_fact {
     sql: ${TABLE}."VALUE" ;;
 
     filters: {
-      field: metric_dim.metric_name
-      value: "Opened Email"
+      field: insight_dim.insight_name
+      value: "Total Opened"
     }
   }
 
@@ -135,8 +135,8 @@ view: insight_fact {
     sql: ${TABLE}."VALUE" ;;
 
     filters: {
-      field: metric_dim.metric_name
-      value: "Placed Order"
+      field: insight_dim.insight_name
+      value: "Total Conversion"
     }
   }
 
@@ -146,8 +146,8 @@ view: insight_fact {
     sql: ${TABLE}."VALUE" ;;
 
     filters: {
-      field: metric_dim.metric_name
-      value: "Bounced Email"
+      field: insight_dim.insight_name
+      value: "Total Bounced"
     }
   }
 
@@ -157,8 +157,8 @@ view: insight_fact {
     sql: ${TABLE}."VALUE" ;;
 
     filters: {
-      field: metric_dim.metric_name
-      value: "Dropped Email"
+      field: insight_dim.insight_name
+      value: "Total Dropped"
     }
   }
 
@@ -167,8 +167,8 @@ view: insight_fact {
     type: count
 
     filters: {
-      field: metric_dim.metric_name
-      value: "Unsubscribed"
+      field: insight_dim.insight_name
+      value: "Total Unsubscribed"
     }
   }
 
@@ -179,8 +179,8 @@ view: insight_fact {
     sql: ${TABLE}."VALUE" ;;
 
     filters: {
-      field: metric_dim.metric_name
-      value: "Marked Email as Spam"
+      field: insight_dim.insight_name
+      value: "Total Spammed"
     }
   }
 
